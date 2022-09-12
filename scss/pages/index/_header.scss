@@ -1,0 +1,60 @@
+
+@import '../../base/base';
+@import '../../themes/variable';
+//nesting css
+.header {
+    background-color: $bg-c1-light;
+    -webkit-box-shadow: 0px 13px 13px 2px rgba(19, 210, 237, 0.54);
+    box-shadow: 0px 13px 13px 2px rgba(19, 210, 237, 0.54);
+    @media only screen and (max-width: 765px) {
+      background-color: red;
+    }
+    .container {
+      display: flex;
+      justify-content: space-between;
+      padding: 15px 0;
+  
+      .logo {
+        text-decoration: none;
+        // font-size: $text-3xl;
+        // font-weight: $text-semibold;
+        // color: $text-c1-primary;
+        @include text($text-3xl, $text-semibold, $text-c1-primary);
+        @media only screen and (max-width: 765px) {
+          display: none;
+        }
+      }
+  
+      .menu {
+        a {
+          margin: 0 15px;
+          // color: $text-c1-dark;
+          // font-size: $text-base;
+          // font-weight: $text-regular;
+          @include text();
+          text-decoration: none;
+          position: relative;
+  
+          &::before {
+            position: absolute;
+            content: "";
+            width: 100%;
+            height: 3px;
+            background-color: $bg-c1-primary;
+            left: 0;
+            bottom: -5px;
+            transform: scale(0, 1);
+            transition: transform 0.3s;
+          }
+  
+          &:hover {
+            color: $text-c1-primary;
+  
+            &::before {
+              transform: scale(1, 1);
+            }
+          }
+        }
+      }
+    }
+  }

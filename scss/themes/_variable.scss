@@ -1,0 +1,68 @@
+/*file variable: Chứa các biến và mixin*/
+
+$arr-color-text: (
+    "100": "#d0e1ff",
+    "200": "#9ec5fe",
+    "300": "#6ea7fe",
+    "400": "#3d8bfd",
+    "500": "#0b6efd",
+  );
+  
+  @each $key, $value in $arr-color-text {
+    .text-blue-#{$key} {
+      color: $value;
+    }
+  }
+  
+  
+  $text-c1-primary: #2a73dd;
+  $text-c1-dark: #000;
+  $text-c1-light: #fff;
+  
+  $text-xs: 14px;
+  $text-base: 16px;
+  $text-xl: 18px;
+  $text-2xl: 20px;
+  $text-3xl: 30px;
+  $text-4xl: 40px;
+  $text-5xl: 50px;
+  $text-6xl: 60px;
+  
+  $text-light: 300;
+  $text-regular: 400;
+  $text-semibold: 600;
+  $text-bold: 700;
+  
+  /*
+      background: color
+  */
+  $bg-c1-primary: #2a73dd;
+  $bg-c1-light: #f5f9fe;
+  $bg-transparent: transparent;
+  
+  $color: red;
+@debug "Màu chữ: #{$color}";
+  
+  //Hàm trong scss (mixin)
+  @mixin text($fz: $text-base, $fw: $text-regular, $c: $text-c1-dark) {
+    font-size: $fz;
+    font-weight: $fw;
+    color: $c;
+  }
+  
+  @mixin button($fz, $fw, $c, $bg, $pd, $bd, $br, $bg-hover, $c-hover) {
+    // font-size: 16px;
+    // font-weight: 600;
+    // color: #000;
+    @include text($fz, $fw, $c);
+    background: $bg;
+    padding: $pd;
+    border: $bd;
+    border-radius: $br;
+    cursor: pointer;
+    &:hover {
+      background: $bg-hover;
+      color: $c-hover;
+    }
+  }
+  
